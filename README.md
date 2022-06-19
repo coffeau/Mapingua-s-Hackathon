@@ -1,10 +1,24 @@
-# Mapingua-s-Hackathon
-só os deuses da ti
+# mapinguas-team
 
-- Eduarda Saibert
-- Kauane Delvoss Ribas
-- Leonardo Maros
-- Bryann Locatelli
-- Carlos Magno
-- Carlos Barbosa
-- Gabriel de Quadros
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
