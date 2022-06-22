@@ -1,14 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomePage from '../views/HomePage.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-  path: '/',
-  name:  'Home',
-  component: HomePage}
+    path: '/',
+    name:  'Home',
+    component: () => import('../views/HomePage.vue')
+  },
+  {
+    path:'/Requisicao',
+    name: 'Requisicao',
+    component: () => import('../views/FormView.vue')
+  }
 ]
 
 const router = new VueRouter({

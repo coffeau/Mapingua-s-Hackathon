@@ -1,5 +1,5 @@
 <template>
-  <v-bottom-navigation :value="value" color="black" grow>
+  <v-bottom-navigation :value="value" color="black" grow class="nav-bar">
     <v-btn>
       <span class="text">Geral</span>
 
@@ -21,8 +21,8 @@ export default {
 </script>
 
 <style>
-* {
-  z-index: 5;
+.nav-bar {
+  z-index: 6;
 }
 
 .v-bottom-navigation {

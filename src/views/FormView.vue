@@ -1,46 +1,58 @@
 <template>
-  <div class="home-page">
-    <div v-for="n in this.form.length" :key="n" class="template-dog">
-        <FormText :isOdd='IsOdd(n)'/>
-    </div>
+  <div class="home-page d-flex flex-column">
+    <MenuToggle :To="'Novo Cão'" :back="'Home'" />
+    <FormText :img="'sim'" />
+    <FormRadio />
+    <FormText :title="form[2].title" :isEven="true"></FormText>
+    <FormText :title="form[3].title" :isEven="false"></FormText>
   </div>
 </template>
 
 <script>
-import FormText from '../components/FormText.vue'
+import FormText from "../components/Form/FormText.vue";
+import FormRadio from "../components/Form/FormRadio.vue";
+import MenuToggle from "../components/MenuToggle"
 export default {
-    components: { FormText },
-    data(){
-        return {
-            form: [{isOdd: ''}, {isOdd: ''}, {isOdd: ''}, {isOdd: ''}]
-        }
-    },
-    methods:{
-        IsOdd: function(index){
-            let new_index = index-1
-            let resultado = new_index % 2
-            if (resultado==0){
-                this.form[new_index].isOdd = false
-                return false
-            } else{
-                this.form[new_index].isOdd = true
-                return true
-            }
-        }
-    }
-}
+  components: { FormText, FormRadio, MenuToggle },
+  data() {
+    return {
+      form: [
+        { nome: "Nome do Cachorro" },
+        { },
+        { title: "Local da última vez visto" },
+        { title: "Comentário (Opcional)"}
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
-.home-page{
-    padding-top: 2vh;
-    height: 100vh;
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(145deg, #E6FF9DCC, #DEF2EA), 
-                        linear-gradient(to bottom left, #FFFFFF, #E6FF9DCC) ;
 
-    /* background: url(../assets/background-gradient2.png); */} 
+.home-page {
+  gap: 5vw;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: white;
 
+  background-position: top left;
+  background: radial-gradient(
+      ellipse farthest-corner at 0vw 10vh,
+      rgba(225, 239, 191, 1) 30%,
+      rgba(1, 1, 1, 0) 48%
+    ),
+    radial-gradient(
+      farthest-side at 90vw 40vh,
+      rgba(223, 243, 235, 1) 40%,
+      rgba(1, 1, 1, 0) 58%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at bottom right,
+      rgba(225, 239, 191, 1) 30%,
+      rgba(1, 1, 1, 0) 48%
+    );
+  /* background: url(../assets/background-gradient2.png); */
+}
 </style>

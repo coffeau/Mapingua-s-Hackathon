@@ -1,9 +1,14 @@
 <template>
   <div class="menu-toggle">
     <v-app-bar permanent elevation="0" dense class="p-0 mt-2">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon v-if="toggle" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-icon large v-else @click="irPara(back)" class="mr-2">mdi-arrow-left-thin</v-icon>
 
-      <div class="nav-title">Perfis</div>
+      <div class="nav-title">{{ To }}</div>
+      <v-spacer></v-spacer>
+      <div v-if="add" @click="acessarRequisicao" class="box-icon d-flex align-center justify-center">
+        <v-icon>mdi-plus</v-icon>
+      </div>
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" color="#FFFFCC" absolute temporary>
@@ -34,6 +39,10 @@
 export default {
     props: {
         lista: Array,
+        To: String,
+        add: Boolean,
+        toggle: Boolean,
+        back: String
     },
   data: () => ({
     selectedItem: 1,
@@ -46,6 +55,15 @@ export default {
       this.drawer = false;
     },
   },
+
+  methods:{
+    acessarRequisicao: function(){
+      this.$router.push({path: '/Requisicao'})
+    },
+    irPara: function(route){
+      this.$router.push({name:route})
+    }
+  }
 };
 </script>
 
@@ -97,6 +115,15 @@ header.theme--light.v-app-bar.v-toolbar.v-sheet,
 
 .v-list-item{
     width:100%;
+}
+
+.box-icon{
+  box-sizing: border-box;
+  width: calc(3vw + 3vh);
+  height: calc(3vw + 3vh);
+  border: 1px solid black;
+  border-radius: 100px;
+  background-color: #E6FF9D;
 }
 
 </style>
