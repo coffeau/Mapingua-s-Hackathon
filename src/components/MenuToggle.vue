@@ -6,7 +6,7 @@
 
       <div class="nav-title">{{ To }}</div>
       <v-spacer></v-spacer>
-      <div v-if="add" @click="acessarRequisicao" class="box-icon d-flex align-center justify-center">
+      <div v-if="add" @click="acessarRequisicao" class="box-icon me-4 d-flex align-center justify-center">
         <v-icon>mdi-plus</v-icon>
       </div>
     </v-app-bar>
@@ -45,7 +45,7 @@ export default {
         back: String
     },
   data: () => ({
-    selectedItem: 1,
+    selectedItem: 0,
     drawer: false,
     group: null,
   }),

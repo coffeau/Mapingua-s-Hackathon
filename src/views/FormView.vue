@@ -1,6 +1,6 @@
 <template>
   <div class="home-page d-flex flex-column">
-    <MenuToggle :To="'Novo Cão'" :back="'Home'" />
+    <MenuToggle class="menu-toggle" :To="'Novo Cão'" :back="'Home'" />
     <FormText :img="'sim'" />
     <FormRadio />
     <FormText :title="form[2].title" :isEven="true"></FormText>
@@ -28,16 +28,19 @@ export default {
 </script>
 
 <style scoped>
+.menu-toggle{
+  position: fixed;
+}
 
 .home-page {
   gap: 5vw;
   height: 100vh;
   width: 100vw;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-color: white;
+  background-position: bottom;
 
-  background-position: top left;
   background: radial-gradient(
       ellipse farthest-corner at 0vw 10vh,
       rgba(225, 239, 191, 1) 30%,

@@ -1,6 +1,6 @@
 <template>
-  <div class="home-page overflow-y-auto">
-    <MenuToggle :lista="lista" :To="'Home'" :add="true" :toggle="true"/>
+  <div class="home-page">
+    <MenuToggle class="menu-toggle" :lista="lista" :To="'Home'" :add="true" :toggle="true"/>
     <v-row class="d-flex flex-row row-width">
       <div v-for="n in this.dogs.length" :key="n" class="d-flex template-dog">
         <DogImage :isEven="IsEven(n)" :dogs="dogs" :index="n - 1" />
