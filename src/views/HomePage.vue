@@ -1,52 +1,82 @@
 <template>
-  <div class="home-page">
+  <div class="home-page overflow-y-auto">
+    <MenuToggle :lista="lista" />
     <v-row class="d-flex flex-row row-width">
-    <div v-for="n in this.dogs.length" :key="n" class="template-dog">
-        <DogImage :isOdd='IsOdd(n)' class="d-flex"/>
-    </div>
+      <div v-for="n in this.dogs.length" :key="n" class="d-flex template-dog">
+        <DogImage :isEven="IsEven(n)" :dogs="dogs" :index="n - 1" />
+      </div>
     </v-row>
+    <NavBar class="nav-bar" />
   </div>
 </template>
 
 <script>
-import DogImage from '../components/DogImage.vue'
+import DogImage from "../components/DogImage.vue";
+import MenuToggle from "../components/MenuToggle.vue";
+import NavBar from "../components/NavBar.vue";
+
 export default {
-    components: { DogImage },
-    data(){
-        return {
-            dogs: [{isOdd: ''}, {isOdd: ''}, {isOdd: ''}, {isOdd: ''}]
-        }
+  components: { DogImage, MenuToggle, NavBar },
+  data() {
+    return {
+      dogs: [
+        { nome: "Cão 1", isEven: "" },
+        { nome: "Cão 2", isEven: "" },
+        { nome: "Cão 3", isEven: "" },
+        { nome: "Cão 4", isEven: "" },
+        { nome: "Cão 5", isEven: "" },
+      ],
+      lista: [
+        { icon: "mdi-home", nome: "Home" },
+        { icon: "mdi-account", nome: "Perfil" },
+        { icon: "mdi-exit-to-app", nome: "Sair" },
+      ],
+    };
+  },
+  methods: {
+    IsEven: function (index) {
+      let new_index = index - 1;
+      let resultado = new_index % 2;
+      if (resultado == 0) {
+        this.dogs[new_index].isEven = true;
+        return true;
+      } else {
+        this.dogs[new_index].isEven = false;
+        return false;
+      }
     },
-    methods:{
-        IsOdd: function(index){
-            let new_index = index-1
-            let resultado = new_index % 2
-            if (resultado==0){
-                this.dogs[new_index].isOdd = true
-                return true
-            } else{
-                this.dogs[new_index].isOdd = false
-                return false
-            }
-        }
-    }
-}
+  },
+};
 </script>
 
 <style scoped>
-.row-width{
-    width: 100vw;
+.template-dog {
+  flex: 1 1;
+  flex-direction: row-reverse;
 }
-.home-page{
-    padding-top: 2vh;
-    height: 100vh;
-    width: 100vw;
-    background-size: cover;
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(145deg, #E6FF9DCC, #DEF2EA), 
-                        linear-gradient(to bottom left, #FFFFFF, #E6FF9DCC) ;
 
-    /* background: url(../assets/background-gradient2.png); */} 
+.nav-bar {
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+}
 
+.row {
+  margin: 0;
+}
+
+.row-width {
+  width: 100vw;
+}
+.home-page {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(145deg, #e6ff9dcc, #def2ea),
+    linear-gradient(to bottom left, #ffffff, #e6ff9dcc);
+
+  /* background: url(../assets/background-gradient2.png); */
+}
 </style>
