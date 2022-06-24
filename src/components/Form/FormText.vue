@@ -1,5 +1,5 @@
 <template>
-  <div class="form-text d-flex mr-auto mb-0">
+  <div class="form-text d-flex mr-auto mb-0 mt-5">
     <div class="d-flex flex-grow-1 flex-column">
       <div v-if="img" class="form-img align-end">
         <div
@@ -14,27 +14,36 @@
         >
           <img class="img" src="@/assets/avatar_dog.png" alt="Doguinho!" />
         </div>
-            <div class="edit-icon">
-                <img src="@/assets/icone-lapis.png" alt="Lápis" class="pencil-icon">
-            </div>
+        <div class="edit-icon">
+          <img src="@/assets/icone-lapis.png" alt="Lápis" class="pencil-icon" />
+        </div>
       </div>
 
       <div class="form-box">
-        <div v-if="this.isEven === true" class="box d-flex flex-column align-start">
-          <h6 v-if="this.title" class="title mt-n8 titulo font-weight-bold">
+        <div
+          v-if="this.isEven === true"
+          class="box d-flex flex-column align-start"
+        >
+          <h6 v-if="this.title" class=" mt-n6 titulo font-weight-bold">
             {{ title }}
           </h6>
-          <h6 class="title titulo">
-            <slot></slot>
-          </h6>
+          <div v-if="this.area" class=" text-this.">
+            <v-text-area label="" v-model="escritaUsuario"></v-text-area>
+          </div>
+          <div v-else-if="this.input" class="text-input black--text font-weight-bold">
+            <v-text-field v-model="escritaUsuario" label=""></v-text-field>
+          </div>
         </div>
-        <div v-else class="right box box-right d-flex flex-column align-start">
-          <h6 v-if="this.title" class="mt-n8 title titulo font-weight-bold">
+        <div v-else class="right box box-right flex-column align-start">
+          <h6 v-if="this.title" class="mt-n6  titulo font-weight-bold">
             {{ title }}
           </h6>
-          <h6 class="title">
-            <slot></slot>
-          </h6>
+          <div v-if="this.area" class=" text-area right">
+            <v-text-area label="" v-model="escritaUsuario"></v-text-area>
+          </div>
+          <div v-else-if="this.input" class=" text-input right">
+            <v-text-field label=""></v-text-field>
+          </div>
         </div>
       </div>
     </div>
@@ -48,23 +57,29 @@ export default {
     msg: String,
     title: String,
     img: String,
+    area: Boolean,
+    input: Boolean
   },
   data() {
-    return {};
+    return {
+      escritaUsuario: "",
+    };
   },
 };
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
+
 .form-text {
   width: 100vw;
 }
 
 .box {
+  display: table;
   box-sizing: border-box;
   width: 90vw;
   height: 10vh;
-  margin-bottom: 10vw;
   background: #ffffff;
   border: 1px solid #000000;
   box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.25);
@@ -77,13 +92,13 @@ export default {
 
 .right {
   margin-left: 10vw;
+  margin-right: 0;
 }
 
 .dog-img {
   overflow: hidden;
-  position: relative;
-  top: 3vh;
-  z-index: 5;
+  top: 10vw;
+  z-index: 4;
   display: flex;
   border: 2px solid #000000;
   box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.25);
@@ -99,8 +114,8 @@ export default {
     #e6ff9d;
 }
 
-.dog-img-right{
-  margin-left: 20vw;
+.dog-img-right {
+  margin-left: calc(45vw - (15vh + 15vw) / 2);
 }
 
 .img {
@@ -110,32 +125,47 @@ export default {
 
 .form-img {
   position: relative;
+  display: flex;
   top: 5vh;
   left: 5vw;
+}
+
+.edit-icon {
+  width: 10vw;
+  margin-left: -9vw;
+  top: 100%;
   
 }
 
-.edit-icon{
-    width: 10vw;
-    margin-left: 55vw;
-    top: 100%;
-    margin-top: -10px;
+.pencil-icon {
+  z-index: 5;
+  position: relative;
+  width: 10vw;
+  height: auto;
 }
 
-.pencil-icon{
-    z-index: 5;
-    position: relative;
-    width: 10vw;
-    height: auto;
+.box > .titulo {
+  margin-left: 10vw;
+  font-size: 1em;
 }
 
-  .box > .titulo{
-    margin-left: 10vw;
-  }
-
-.box-right > .titulo{
+.box-right > .titulo {
   margin-left: 0;
   margin-right: 10vw;
+  font-size: 1em;
+}
+
+.text-input, .text-area{
+  display: relative;
+  margin-left: 10vw;
+  width: 75vw;
+  font-family: 'Amatic SC', sans-serif;
+  font-weight: 700;
+  font-size: 1.8vh;
+}
+
+.v-input{
+  font-size: 1.58em;
 }
 
 </style>

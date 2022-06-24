@@ -3,8 +3,8 @@
     <MenuToggle class="menu-toggle" :To="'Novo Cão'" :back="'Home'" />
     <FormText :img="'sim'" />
     <FormRadio />
-    <FormText :title="form[2].title" :isEven="true"></FormText>
-    <FormText :title="form[3].title" :isEven="false"></FormText>
+    <FormText :input="true" :title="form[2].title" :isEven="true">Oi</FormText>
+    <FormText :area="true" :title="form[3].title" :isEven="false"></FormText>
   </div>
 </template>
 
@@ -29,19 +29,17 @@ export default {
 
 <style scoped>
 .menu-toggle{
-  position: fixed;
+  position: absolute;
 }
 
 .home-page {
   gap: 5vw;
-  height: 100vh;
   width: 100vw;
-  background-size: cover;
-  background-repeat: repeat;
+  background-repeat: repeat-y;
   background-color: white;
   background-position: bottom;
 
-  background: radial-gradient(
+  background-image: radial-gradient(
       ellipse farthest-corner at 0vw 10vh,
       rgba(225, 239, 191, 1) 30%,
       rgba(1, 1, 1, 0) 48%
