@@ -1,5 +1,5 @@
 <template>
-  <div class="home-page">
+  <div class="home-page overflowy-auto">
     <MenuToggle class="menu-toggle" :lista="lista" :To="'Home'" :add="true" :toggle="true"/>
     <v-row class="d-flex flex-row row-width">
       <div v-for="n in this.dogs.length" :key="n" class="d-flex template-dog">
@@ -57,7 +57,6 @@ export default {
 
 .nav-bar {
   overflow: hidden;
-  position: absolute;
   bottom: 0;
 }
 
@@ -69,11 +68,11 @@ export default {
   width: 100vw;
 }
 .home-page {
-  height: 100vh;
   width: 100vw;
+  min-height: 100vh;
   background-size: cover;
   background-position: bottom;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-image: linear-gradient(145deg, #e6ff9dcc, #def2ea),
     linear-gradient(to bottom left, #ffffff, #e6ff9dcc);
 

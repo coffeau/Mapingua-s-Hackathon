@@ -14,7 +14,7 @@
         >
           <img class="img" src="@/assets/avatar_dog.png" alt="Doguinho!" />
         </div>
-        <div class="edit-icon">
+        <div class="edit-icon" @click="showPopUp = !showPopUp">
           <img src="@/assets/icone-lapis.png" alt="Lápis" class="pencil-icon" />
         </div>
       </div>
@@ -28,7 +28,7 @@
             {{ title }}
           </h6>
           <div v-if="this.area" class=" text-this.">
-            <v-text-area label="" v-model="escritaUsuario"></v-text-area>
+            <v-textarea name="textArea" label="" v-model="escritaUsuario"></v-textarea>
           </div>
           <div v-else-if="this.input" class="text-input black--text font-weight-bold">
             <v-text-field v-model="escritaUsuario" label=""></v-text-field>
@@ -39,19 +39,22 @@
             {{ title }}
           </h6>
           <div v-if="this.area" class=" text-area right">
-            <v-text-area label="" v-model="escritaUsuario"></v-text-area>
+            <v-textarea name="textArea" label="" v-model="escritaUsuario"></v-textarea>
           </div>
           <div v-else-if="this.input" class=" text-input right">
             <v-text-field label=""></v-text-field>
           </div>
         </div>
       </div>
+      <DialogForm @fecharPopUp="showPopUp = false" :showPopUp='showPopUp'/>
     </div>
   </div>
 </template>
 
 <script>
+import DialogForm from '../Form/DialogForm.vue'
 export default {
+  components: { DialogForm },
   props: {
     isEven: Boolean,
     msg: String,
@@ -63,6 +66,7 @@ export default {
   data() {
     return {
       escritaUsuario: "",
+      showPopUp: false
     };
   },
 };

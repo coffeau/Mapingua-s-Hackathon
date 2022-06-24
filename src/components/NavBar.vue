@@ -1,5 +1,5 @@
 <template>
-  <v-bottom-navigation :value="value" color="black" grow class="nav-bar">
+  <v-bottom-navigation fixed app :value="pagSelecionada" color="black" grow class="nav-bar">
     <v-btn>
       <span class="text">Geral</span>
 
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  data: () => ({ value: 0 }),
+  data: () => ({ pagSelecionada: 0 }),
 };
 </script>
 

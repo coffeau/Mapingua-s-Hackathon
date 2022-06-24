@@ -1,6 +1,6 @@
 <template>
   <v-container class="dog-image mr-auto">
-    <div class="box-img d-flex mt-n5">
+    <div class="box-img d-flex mt-n7">
       <div v-if="this.isEven === true" class="dog-img align-center justify-center">
         <img class="img" src="../assets/avatar_dog.png" alt="Doguinho!" />
       </div>
