@@ -1,5 +1,5 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 // import Home from "../views/Home.vue";
 import telaInicial from "../views/register/telaInicial.vue";
 import cadastro from "../views/register/Cadastro.vue";
@@ -10,10 +10,20 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: '/HomeDogs',
+    name:  'Home',
+    component: () => import('../views/HomePage.vue')
+  },
+  {
+    path:'/Requisicao',
+    name: 'Requisicao',
+    component: () => import('../views/FormView.vue')
+  },
+  {
 
-        path: "/",
-        name: "telaInicial",
-        component: telaInicial,
+    path: "/",
+    name: "telaInicial",
+    component: telaInicial,
       
   },
   { 
