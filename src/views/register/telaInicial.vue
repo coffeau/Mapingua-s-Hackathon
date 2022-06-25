@@ -40,6 +40,7 @@ export default {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100vw;
   position: fixed;
   bottom: 0;
 
@@ -52,6 +53,7 @@ export default {
 
 h2 {
   color: #000000;
+  text-align: center;
 }
 
 .v-btn.v-btn--is-elevated.v-btn--has-bg.theme--light.v-size--default {

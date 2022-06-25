@@ -54,7 +54,7 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-size: cover;
   background-position: bottom;
   background-repeat: repeat-y;
